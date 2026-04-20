@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock History - Inventory System</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h3>Inventory System</h3>
+    <ul>
+      <li><a href="/products/dashboard">Dashboard</a></li>
+      <li><a href="/products/add">Add Product</a></li>
+      <li><a href="/products/list">Product List</a></li>
+      <li><a href="/products/analytics">Analytics</a></li>
+      <li><a href="/products/history">Stock History</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+  <div class="main">
+    <h1>Stock Movement History</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Old Quantity</th>
+          <th>New Quantity</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% history.forEach(item => { %>
+          <tr>
+            <td><%= item.productName %></td>
+            <td><%= item.oldQuantity %></td>
+            <td><%= item.newQuantity %></td>
+            <td><%= item.date.toLocaleString() %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

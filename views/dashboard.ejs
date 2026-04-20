@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Inventory System</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h3>Inventory System</h3>
+    <ul>
+      <li><a href="/products/dashboard">Dashboard</a></li>
+      <li><a href="/products/add">Add Product</a></li>
+      <li><a href="/products/list">Product List</a></li>
+      <li><a href="/products/analytics">Analytics</a></li>
+      <li><a href="/products/history">Stock History</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+  <div class="main">
+    <h1>Dashboard</h1>
+    <% if (message) { %>
+      <div class="alert alert-success"><%= message %></div>
+    <% } %>
+    <div class="cards">
+      <div class="card">
+        <h3>Total Products</h3>
+        <p><%= totalProducts %></p>
+      </div>
+      <div class="card">
+        <h3>Total Quantity</h3>
+        <p><%= totalQuantity %></p>
+      </div>
+      <div class="card">
+        <h3>Low Stock Alerts</h3>
+        <p><%= lowStock.length %></p>
+        <ul>
+          <% lowStock.forEach(product => { %>
+            <li class="low-stock"><%= product.name %> (<%= product.quantity %>)</li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

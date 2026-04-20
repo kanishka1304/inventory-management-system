@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product List - Inventory System</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h3>Inventory System</h3>
+    <ul>
+      <li><a href="/products/dashboard">Dashboard</a></li>
+      <li><a href="/products/add">Add Product</a></li>
+      <li><a href="/products/list">Product List</a></li>
+      <li><a href="/products/analytics">Analytics</a></li>
+      <li><a href="/products/history">Stock History</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </div>
+  <div class="main">
+    <h1>Product List</h1>
+    <% if (message) { %>
+      <div class="alert alert-success"><%= message %></div>
+    <% } %>
+    <div class="filters">
+      <input type="text" id="search" placeholder="Search by name">
+      <select id="category">
+        <option value="">All Categories</option>
+        <% categories.forEach(cat => { %>
+          <option value="<%= cat %>"><%= cat %></option>
+        <% }) %>
+      </select>
+      <button onclick="filterProducts()" class="btn btn-secondary">Filter</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(product => { %>
+          <tr>
+            <td><%= product.name %></td>
+            <td>$<%= product.price %></td>
+            <td class="<%= product.quantity < 5 ? 'low-stock' : '' %>"><%= product.quantity %></td>
+            <td><%= product.category %></td>
+            <td>
+              <a href="/products/update/<%= product._id %>" class="btn btn-secondary">Edit</a>
+              <form action="/products/delete/<%= product._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <script>
+    function filterProducts() {
+      const search = document.getElementById('search').value;
+      const category = document.getElementById('category').value;
+      let url = '/products/list?';
+      if (search) url += 'search=' + encodeURIComponent(search) + '&';
+      if (category) url += 'category=' + encodeURIComponent(category);
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
