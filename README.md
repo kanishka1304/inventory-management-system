@@ -116,15 +116,14 @@ inventory-management-system/
 ```
 
 ---
-
 ## 💻 Installation and Setup
 
 ### Prerequisites
 
 - Node.js
 - npm
+- MongoDB
 - Visual Studio Code
-- Git
 
 ### Step 1: Clone the Repository
 
@@ -144,13 +143,13 @@ cd inventory-management-system
 npm install
 ```
 
-### Step 4: Configure the Application
+### Step 4: Configure MongoDB
 
-Check the configuration files and provide the required environment variables or database settings, if applicable.
+Ensure MongoDB is running and configure the database connection in the appropriate configuration file.
 
-### Step 5: Initialize Application Data
+### Step 5: Initialize Database
 
-If database seeding is configured, execute the seed script according to its implementation.
+If the seed script is configured for your database:
 
 ```bash
 node seed.js
@@ -158,23 +157,14 @@ node seed.js
 
 ### Step 6: Start the Application
 
-Check the available scripts in `package.json`.
-
-If a `start` script is configured, run:
-
 ```bash
 npm start
 ```
 
-Otherwise, if `server.js` is the application entry point:
+### Step 7: Access the Application
 
-```bash
-node server.js
-```
+Open your browser and navigate to the local URL configured in `server.js`.
 
-### Step 7: Open the Application
-
-Open the local URL displayed in your terminal.
 
 ---
 
