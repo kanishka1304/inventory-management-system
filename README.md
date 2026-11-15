@@ -1,18 +1,5 @@
 # 📦 Inventory Management System
 
-<p align="center">
-  <b>A Web-Based Application for Efficient Inventory Management and Stock Monitoring</b>
-</p>
-
-<p align="center">
-  ![Node.js](https://img.shields.io/badge/Node.js-JavaScript-green?logo=node.js)
-  ![Backend](https://img.shields.io/badge/Backend-Node.js-brightgreen)
-  ![Frontend](https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS-orange)
-  ![GitHub](https://img.shields.io/badge/Version%20Control-GitHub-black?logo=github)
-</p>
-
----
-
 ## 📌 Project Overview
 
 The Inventory Management System is a web-based application designed to simplify and organize inventory-related operations.
